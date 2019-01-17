@@ -1,0 +1,19 @@
+mysql> create table Patient(
+    -> patID int NOT NULL AUTO_INCREMENT,
+    -> patName varchar(50),
+    -> patMobile varchar(20),
+    -> patPassword varchar(30),
+    -> patLocation varchar(20),
+    -> PRIMARY KEY(patID)
+    -> );
+mysql> describe patient;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| patID       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| patName     | varchar(50) | YES  |     | NULL    |                |
+| patMobile   | varchar(20) | YES  |     | NULL    |                |
+| patPassword | varchar(30) | YES  |     | NULL    |                |
+| patLocation | varchar(20) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.05 sec)

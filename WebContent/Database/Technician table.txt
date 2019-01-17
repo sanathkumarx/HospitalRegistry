@@ -1,0 +1,17 @@
+mysql> create table technician(
+    -> techID int NOT NULL AUTO_INCREMENT,
+    -> techName varchar(50),
+    -> techMobile varchar(20),
+    -> techPassword varchar(30),
+    -> PRIMARY KEY(techID)
+    -> );
+mysql> describe technician;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| techID       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| techName     | varchar(50) | YES  |     | NULL    |                |
+| techMobile   | varchar(20) | YES  |     | NULL    |                |
+| techPassword | varchar(30) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.07 sec)

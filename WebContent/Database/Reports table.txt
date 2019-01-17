@@ -1,0 +1,22 @@
+mysql> create table report(
+    -> repID int NOT NULL AUTO_INCREMENT,
+    -> appID int NOT NULL,
+    -> techID int NOT NULL,
+    -> testName varchar(50),
+    -> repStatus boolean,
+    -> FOREIGN KEY (appID) REFERENCES appointment(appID)
+    -> ,
+    -> FOREIGN KEY (techID) REFERENCES technician(techID),
+    -> PRIMARY KEY (repID)
+    -> );
+mysql> describe report;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| repID     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| appID     | int(11)     | NO   | MUL | NULL    |                |
+| techID    | int(11)     | NO   | MUL | NULL    |                |
+| testName  | varchar(50) | YES  |     | NULL    |                |
+| repStatus | tinyint(1)  | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.03 sec)
