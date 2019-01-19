@@ -1,6 +1,6 @@
 package com.hospital.registry;
 
-import java.util.List;
+import java.util.Set;
 
 
 public interface DoctorDAO {
@@ -9,6 +9,6 @@ public interface DoctorDAO {
 	public void delete(Doctor doctor);
 	public boolean validate(long docMobile, String docPassword);
 	public Doctor findDoctor(long docMobile);
-	public List<Doctor> findDoctorsByFilters(String location, String availablity,String specialization);
+	public Set<Doctor> findDoctorsByFilters(String location, String availablity,String specialization);
 	
 }
