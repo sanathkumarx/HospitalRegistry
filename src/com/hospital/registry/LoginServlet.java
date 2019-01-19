@@ -1,7 +1,8 @@
 package com.hospital.registry;
 
 import java.io.IOException;
-import javax.servlet.ServletConfig;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,42 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class doctorRegistrationServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/doctorRegistrationServlet")
-public class doctorRegistrationServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public doctorRegistrationServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see Servlet#getServletConfig()
-	 */
-	public ServletConfig getServletConfig() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * @see Servlet#getServletInfo()
-	 */
-	public String getServletInfo() {
-		// TODO Auto-generated method stub
-		return null; 
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,15 +36,22 @@ public class doctorRegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		try {
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			DoctorDAO DoctorDao = new DoctorDAOImp();
+			String usermobile = request.getParameter("userMobile");
+			String userpassword = request.getParameter("userPassword");
+			String userposition = request.getParameter("userPosition");
+			long mobile = Long.parseLong(usermobile);
+			if(DoctorDao.validate(mobile, userpassword)) {
+				out.println("logged in");
+			}else {
+				out.println("Invalid Username/password");
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

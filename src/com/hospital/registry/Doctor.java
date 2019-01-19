@@ -1,7 +1,7 @@
 package com.hospital.registry;
 
 
-public class Doctor {
+public class Doctor{
 	String docName;
 	long docMobile;
 	String docPassword;
