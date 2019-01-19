@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class Appointment {
 	int appId;
-	int patId;
-	int docId;
+	long patMobile;
+	long docMobile;
 	Date appDate;
 	int appStatus;
 	
@@ -16,18 +16,18 @@ public class Appointment {
 		this.appId = appId;
 	}
 	
-	public int getpatId() {
-		return patId;
+	public long getpatMobile() {
+		return patMobile;
 	}
-	public void setpatId(int patId) {
-		this.patId = patId;
+	public void setpatMobile(long patMobile) {
+		this.patMobile = patMobile;
 	}
 	
-	public int getdocId() {
-		return docId;
+	public long getdocMobile() {
+		return docMobile;
 	}
-	public void setdocId(int docId) {
-		this.docId = docId;
+	public void setdocMobile(long docMobile) {
+		this.docMobile = docMobile;
 	}
 	
 	public Date getappDate() {
@@ -43,6 +43,5 @@ public class Appointment {
 	public void setappStatus(int appStatus) {
 		this.appStatus = appStatus;
 	}
-	
-	
+
 }

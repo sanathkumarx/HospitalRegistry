@@ -1,28 +1,14 @@
 package com.hospital.registry;
 
+
 public class Doctor {
-	int docId;
 	String docName;
 	long docMobile;
 	String docPassword;
 	String docLocation;
 	String docSpecialization;
 	int docDays;
-	
-	public int getdocId() {
-		return docId;
-	}
-	
-	public void setdocId(int docId) {
-		this.docId = docId;
-	}
-	public String getdocName() {
-		return docName;
-	}
-	
-	public void setdocName(String docName) {
-		this.docName = docName;
-	}
+
 	public long getdocMobile() {
 		return docMobile;
 	}
@@ -30,6 +16,15 @@ public class Doctor {
 	public void setdocMobile(long docMobile) {
 		this.docMobile = docMobile;
 	}
+	
+	public String getdocName() {
+		return docName;
+	}
+	
+	public void setdocName(String docName) {
+		this.docName = docName;
+	}
+
 	public String getdocPassword() {
 		return docPassword;
 	}

@@ -3,7 +3,7 @@ package com.hospital.registry;
 public class Reports {
 	int repId;
 	int appId;
-	int techId;
+	long techMobile;
 	int repStatus;
 	String testName;
 	
@@ -21,11 +21,11 @@ public class Reports {
 		this.appId = appId;
 	}
 	
-	public int gettechId() {
-		return techId;
+	public long gettechMobile() {
+		return techMobile;
 	}
-	public void settechId(int techId) {
-		this.techId = techId;
+	public void settechMobile(long techMobile) {
+		this.techMobile = techMobile;
 	}
 	
 	public int getrepStatus() {

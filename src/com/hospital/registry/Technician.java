@@ -1,24 +1,9 @@
 package com.hospital.registry;
 
 public class Technician {
-	int techId;
 	String techName;
 	long techMobile;
 	String techPassword;
-	
-	public int gettechId() {
-		return techId;
-	}
-	public void settechId(int techId) {
-		this.techId = techId;
-	}
-	
-	public String gettechName() {
-		return techName;
-	}
-	public void settechName(String techName) {
-		this.techName = techName;
-	}
 	
 	public long gettechMobile() {
 		return techMobile;
@@ -26,6 +11,14 @@ public class Technician {
 	public void settechMobile(long techMobile) {
 		this.techMobile = techMobile;
 	}
+
+	public String gettechName() {
+		return techName;
+	}
+	public void settechName(String techName) {
+		this.techName = techName;
+	}
+
 	
 	public String gettechPassword() {
 		return techPassword;

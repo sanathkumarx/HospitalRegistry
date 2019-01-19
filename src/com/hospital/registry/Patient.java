@@ -1,17 +1,16 @@
 package com.hospital.registry;
 
 public class Patient {
-	int patId;
 	String patName;
 	long patMobile;
 	String patPassword;
 	String patLocation;
-	
-	public int getpatId() {
-		return patId;
+
+	public long getpatMobile() {
+		return patMobile;
 	}
-	public void setpatId(int patId) {
-		this.patId = patId;
+	public void setpatMobile(long patMobile) {
+		this.patMobile = patMobile;
 	}
 	
 	public String getpatName() {
@@ -21,13 +20,7 @@ public class Patient {
 		this.patName = patName;
 	}
 	
-	public long getpatMobile() {
-		return patMobile;
-	}
-	public void setpatMobile(long patMobile) {
-		this.patMobile = patMobile;
-	}
-	
+
 	public String getpatPassword() {
 		return patPassword;
 	}
