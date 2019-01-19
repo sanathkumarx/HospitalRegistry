@@ -8,7 +8,7 @@ public interface DoctorDAO {
 	public void update(Doctor doctor);
 	public void delete(Doctor doctor);
 	public boolean validate(long docMobile, String docPassword);
-	List<Doctor> findPatient(long docMobile);
-	List<Doctor> findDoctorsByFilters(String location, String availablity,String specialization);
+	public Doctor findDoctor(long docMobile);
+	public List<Doctor> findDoctorsByFilters(String location, String availablity,String specialization);
 	
 }
