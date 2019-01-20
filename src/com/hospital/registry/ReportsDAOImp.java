@@ -37,7 +37,6 @@ public class ReportsDAOImp implements ReportsDAO {
 
 	
 	public ReportsDAOImp() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -64,14 +63,10 @@ public class ReportsDAOImp implements ReportsDAO {
 
 	@Override
 	public void update(Reports report) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void delete(Reports report) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

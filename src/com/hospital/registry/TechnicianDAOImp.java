@@ -33,7 +33,6 @@ public class TechnicianDAOImp implements TechnicianDAO {
 	}
 
 	public TechnicianDAOImp() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -61,13 +60,10 @@ public class TechnicianDAOImp implements TechnicianDAO {
 
 	@Override
 	public void update(Technician technician) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void delete(Technician technician) {
-		// TODO Auto-generated method stub
 
 	}
 

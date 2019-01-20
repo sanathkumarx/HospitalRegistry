@@ -57,14 +57,10 @@ public class AppointmentDAOImp implements AppointmentDAO {
 
 	@Override
 	public void update(Appointment appointment) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void delete(Appointment appointment) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

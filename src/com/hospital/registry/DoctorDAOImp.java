@@ -59,14 +59,10 @@ public class DoctorDAOImp implements DoctorDAO {
 
 	@Override
 	public void update(Doctor doctor) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void delete(Doctor doctor) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

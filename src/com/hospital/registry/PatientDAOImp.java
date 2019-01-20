@@ -58,14 +58,10 @@ public class PatientDAOImp implements PatientDAO {
 
 	@Override
 	public void update(Patient patient) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void delete(Patient patient) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
