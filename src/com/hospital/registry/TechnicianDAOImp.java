@@ -18,7 +18,7 @@ public class TechnicianDAOImp implements TechnicianDAO {
 	
 	
 	private Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql:/localhost:3306/hospitalregistry", "root", "Kmit123$");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalregistry", "root", "Kmit123$");
 	}
 	
 	private void closeConnection(Connection con) {

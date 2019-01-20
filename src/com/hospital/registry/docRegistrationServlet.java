@@ -24,7 +24,7 @@ public class docRegistrationServlet extends HttpServlet {
 		String docPassword = request.getParameter("docPassword");
 		String docName = request.getParameter("docName");
 		String docSpecialization = request.getParameter("docSpecialization");
-		String docLocation = request.getParameter("docState");
+		String docLocation = request.getParameter("docLocation");
 		String docDays = "";
 		for(int i=1;i<8;i++) {
 			if(request.getParameter(Integer.toString(i)) != null) 

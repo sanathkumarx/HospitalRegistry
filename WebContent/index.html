@@ -58,7 +58,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Register here</h5>
+            <h5 class="modal-title" id="exampleModalLabel">REGISTER</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -66,17 +66,67 @@
         <div class="modal-body">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                 <a href="#docregistration" class="nav-link active" data-toggle="tab">Doctor</a>
-                </li>
-                <li class="nav-item">
-                 <a href="#patregistration" class="nav-link" data-toggle="tab">Patient</a>
+                 <a href="#patregistration" class="nav-link active" data-toggle="tab">Patient</a>
                 </li>
                 <li class="nav-item">
                  <a href="#labregistration" class="nav-link" data-toggle="tab">Lab Technician</a>
+                </li>                
+                <li class="nav-item">
+                 <a href="#docregistration" class="nav-link" data-toggle="tab">Doctor</a>
                 </li>
+
             </ul>
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="docregistration">
+                <div role="tabpanel" class="tab-pane active" id="patregistration">
+                <form method="post" action="patRegistrationServlet">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="patMobile">Mobile</label>
+                        <input type="tel" class="form-control" name="patMobile" id="patMobile" placeholder="Mobile Number">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="patPassword">Password</label>
+                        <input type="password" class="form-control" name="patPassword" id="patPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="patName">Name</label>
+                        <input type="text" class="form-control" name="patName" id="patName" placeholder="Full Name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                        <label for="inputState">State</label>
+                        <select id="inputState" name="patLocation" class="form-control">
+                            <option value="Telanana" selected>Telangana</option>
+                            <option value="Banglore">Banglore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Chennai">Chennai</option>
+                        </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Register</button>
+                </form>
+                </div>   
+                <div role="tabpanel" class="tab-pane" id="labregistration">
+                <form method="post" action="techRegistrationServlet">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="labNumber">Mobile</label>
+                        <input type="tel" class="form-control" name="techMobile" id="labNumber" placeholder="Mobile Number">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="labPassword">Password</label>
+                        <input type="password" class="form-control" name="techPassword" id="labPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="labName">Name</label>
+                        <input type="text" class="form-control" name="techName" id="labName" placeholder="Full Name">
+                    </div>
+                    <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Register</button>
+                </form>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="docregistration">
                     <form method="post" action="docRegistrationServlet">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -104,7 +154,7 @@
                             </div>
                             <div class="form-group col-md-6">
                             <label for="docState">State</label>
-                            <select id="docState" name="docState" class="form-control">
+                            <select id="docState" name="docLocation" class="form-control">
                                 <option value="Telangana" selected>Telangana</option>
                                 <option value="Chennai">Chennai</option>
                                 <option value="Banglore">Banglore</option>
@@ -149,66 +199,6 @@
                        
                         <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Register</button>
                     </form>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="patregistration">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                        <label for="patMobile">Mobile :</label>
-                        <input type="tel" class="form-control" id="patMobile" placeholder="Mobile Number">
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label for="patPassword">Password</label>
-                        <input type="password" class="form-control" id="patPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="patName">Name</label>
-                        <input type="text" class="form-control" id="patName" placeholder="Full Name">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Telangana</option>
-                            <option>Banglore</option>
-                            <option>Mumbai</option>
-                            <option>Chennai</option>
-                        </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Register</button>
-                </form>
-                </div>   
-                <div role="tabpanel" class="tab-pane" id="labregistration">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                        <label for="labNumber">Mobile</label>
-                        <input type="tel" class="form-control" id="labNumber" placeholder="Mobile Number">
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label for="labPassword">Password</label>
-                        <input type="password" class="form-control" id="labPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="labName">Name</label>
-                        <input type="text" class="form-control" id="labName" placeholder="Full Name">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Telangana</option>
-                            <option>Banglore</option>
-                            <option>Mumbai</option>
-                            <option>Chennai</option>
-                        </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Register</button>
-                </form>
                 </div>
             </div>
         </div>
