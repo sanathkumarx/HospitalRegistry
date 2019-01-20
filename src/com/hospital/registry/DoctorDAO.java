@@ -4,7 +4,7 @@ import java.util.Set;
 
 
 public interface DoctorDAO {
-	public void insert(Doctor doctor);
+	public boolean insert(Doctor doctor);
 	public void update(Doctor doctor);
 	public void delete(Doctor doctor);
 	public boolean validate(long docMobile, String docPassword);

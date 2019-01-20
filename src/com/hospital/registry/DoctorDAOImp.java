@@ -13,8 +13,8 @@ public class DoctorDAOImp implements DoctorDAO {
 	static{
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch(ClassNotFoundException enfe){
-			System.out.println(enfe);
+		} catch(ClassNotFoundException cnfe){
+			System.out.println(cnfe);
 		}
 	}
 
@@ -34,9 +34,9 @@ public class DoctorDAOImp implements DoctorDAO {
 	}
 
 	@Override
-	public void insert(Doctor doctor) {
+	public boolean insert(Doctor doctor) {
 		Connection con = null;
-
+		boolean bool = false;
 		try{
 			con = getConnection();
 			PreparedStatement stmt = con.prepareStatement(
@@ -44,13 +44,17 @@ public class DoctorDAOImp implements DoctorDAO {
 			int res = stmt.executeUpdate();
 			if(res != 0){
 				System.out.println("Doctor "+ doctor.getdocName() +" was registerd succesfully.");
+				bool = true;
+			}
+			else {
+				bool = false;
 			}
 		} catch(SQLException sqle){
 			System.out.println(sqle);
 		} finally {
 			closeConnection(con);
 		}
-
+		return bool;
 	}
 
 	@Override
@@ -73,7 +77,7 @@ public class DoctorDAOImp implements DoctorDAO {
 			con = getConnection();
 			PreparedStatement stmt = con.prepareStatement(
 				"Select docPassword from doctor where docMobile = " + docMobile+";");
-			System.out.println("Select docPassword from doctor where docMobile = " + docMobile+";");
+			System.out.println("Select docPassword from doctor where docMobile = " + docMobile + ";");
 			ResultSet rs = stmt.executeQuery();
 			String actualPassword = "";
 			while(rs.next()) {
