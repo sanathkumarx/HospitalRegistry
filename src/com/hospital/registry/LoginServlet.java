@@ -3,54 +3,80 @@ package com.hospital.registry;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class LoginServlet
- */
+
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			response.setContentType("text/html");
-			PrintWriter out = response.getWriter();
-			DoctorDAO DoctorDao = new DoctorDAOImp();
-			String usermobile = request.getParameter("userMobile");
-			String userpassword = request.getParameter("userPassword");
-			String userposition = request.getParameter("userPosition");
-			long mobile = Long.parseLong(usermobile);
-			if(DoctorDao.validate(mobile, userpassword)) {
-				out.println("logged in");
-			}else {
-				out.println("Invalid Username/password");
+		String usermobile = request.getParameter("userMobile");
+		String userpassword = request.getParameter("userPassword");
+		String userposition = request.getParameter("userPosition");
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
+		switch(userposition) {
+		case "doctor":
+			try {
+				DoctorDAO DoctorDao = new DoctorDAOImp();
+				long mobile = Long.parseLong(usermobile);
+				Doctor doc = DoctorDao.findDoctor(mobile);
+				request.setAttribute("docName", doc.getdocName());
+				out.println(doc.getdocName());
+				if(DoctorDao.validate(mobile, userpassword)) {
+					System.out.println("log in successful");
+					request.setAttribute("usermobile", usermobile);
+			        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  
+			        rd.forward(request, response);  
+				}else {
+					out.println("Invalid Username/password");
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
-		} catch(Exception e) {
-			e.printStackTrace();
+			break;
+		case "patient":
+			try {
+				DoctorDAO DoctorDao = new DoctorDAOImp();
+				long mobile = Long.parseLong(usermobile);
+				if(DoctorDao.validate(mobile, userpassword)) {
+					System.out.println("log in successful");
+					request.setAttribute("usermobile", Long.toString(mobile));
+			        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  
+			        rd.forward(request, response);  
+				}else {
+					out.println("Invalid Username/password");
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		case "technician":
+			try {
+				DoctorDAO DoctorDao = new DoctorDAOImp();
+				long mobile = Long.parseLong(usermobile);
+				if(DoctorDao.validate(mobile, userpassword)) {
+					System.out.println("log in successful");
+					request.setAttribute("usermobile", Long.toString(mobile));
+			        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  
+			        rd.forward(request, response);  
+				}else {
+					out.println("Invalid Username/password");
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			break;
 		}
 	}
 
