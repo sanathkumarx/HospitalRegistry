@@ -1,12 +1,12 @@
 package com.hospital.registry;
 
-import java.util.List;
+import java.util.Set;
 
 public interface ReportsDAO {
-	public void insert(Reports report);
+	public boolean insert(Reports report);
 	public void update(Reports report);
     public void delete(Reports report);
-	public List<Reports> findReportByTechMobile(long techMobile);
-	public List<Reports> findReportByAppID(int appId);
+	public Set<Reports> findReportByTechMobile(long techMobile);
+	public Set<Reports> findReportByAppID(int appId);
 	
 }

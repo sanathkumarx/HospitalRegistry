@@ -6,17 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PatientDAOImp implements PatientDAO {
-
-	static {
+public class TechnicianDAOImp implements TechnicianDAO {
+	
+	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch(ClassNotFoundException cnfe) {
+		} catch (ClassNotFoundException cnfe){
 			System.out.println(cnfe);
 		}
 	}
-
-	private Connection getConnection() throws SQLException{
+	
+	
+	private Connection getConnection() throws SQLException {
 		return DriverManager.getConnection("jdbc:mysql:/localhost:3306/hospitalregistry", "root", "Kmit123$");
 	}
 	
@@ -26,27 +27,29 @@ public class PatientDAOImp implements PatientDAO {
 		}
 		try {
 			con.close();
-		} catch (SQLException sqle){
+		} catch(SQLException sqle) {
 			System.out.println(sqle);
 		}
 	}
-	
+
+	public TechnicianDAOImp() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
-	public boolean insert(Patient patient) {
+	public boolean insert(Technician technician) {
 		Connection con = null;
-		Boolean bool = false;
+		boolean bool = false;
 		try {
 			con = getConnection();
-			PreparedStatement stmt = con.prepareStatement("Insert into patient values (" + patient.getpatMobile() + ", '" + patient.getpatName() + "', '" + patient.getpatPassword() + "', '" + patient.getpatLocation() + "');");
+			PreparedStatement stmt = con.prepareStatement("Insert into technician values (" + technician.gettechMobile() + ", '" + technician.gettechName() + "', '" + technician.gettechPassword() + "');"); 
 			int res = stmt.executeUpdate();
 			if(res != 0) {
-				System.out.println("Patient "+ patient.getpatName() +" was registerd succesfully.");
 				bool = true;
 			}
-			else {
+			else{
 				bool = false;
 			}
-			
 		} catch(SQLException sqle) {
 			System.out.println(sqle);
 		} finally {
@@ -57,31 +60,31 @@ public class PatientDAOImp implements PatientDAO {
 	}
 
 	@Override
-	public void update(Patient patient) {
+	public void update(Technician technician) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(Patient patient) {
+	public void delete(Technician technician) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public boolean validate(long patMobile, String patPassword) {
+	public boolean validate(long techMobile, String techPassword) {
 		Connection con = null;
 		boolean validUser = false;
 		
 		try {
 			con = getConnection();
-			PreparedStatement stmt = con.prepareStatement("Select patPassword from patient where patMobile = " + patMobile + ";");
+			PreparedStatement stmt = con.prepareStatement("Select techPassword from technician where techMobile = " + techMobile + ";");
 			ResultSet rs = stmt.executeQuery();
 			String actualPassword = "";
 			while(rs.next()) {
-				actualPassword =  rs.getString("patPassword");
+				actualPassword =  rs.getString("techPassword");
 			}
-			if(patPassword.equals(actualPassword)) {
+			if(techPassword.equals(actualPassword)) {
 				validUser = true;
 			}
 			else {
@@ -97,18 +100,17 @@ public class PatientDAOImp implements PatientDAO {
 	}
 
 	@Override
-	public Patient findPatient(long patMobile) {
+	public Technician findTechnician(long techMobile) {
 		Connection con = null;
-		Patient resPatient = new Patient();
+		Technician resTechnician = new Technician();
 		
 		try {
 			con = getConnection();
-			PreparedStatement stmt = con.prepareStatement("Select patMobile,patName,patLocation from patient where patMobile = " + patMobile);
+			PreparedStatement stmt = con.prepareStatement("Select techMobile,techName from technician where techMobile = " + techMobile);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				resPatient.setpatLocation(rs.getString("patLocation"));
-				resPatient.setpatMobile(rs.getLong("patMobile"));
-				resPatient.setpatName(rs.getString("patName"));
+				resTechnician.settechMobile(rs.getLong("techMobile"));
+				resTechnician.settechName(rs.getString("techName"));
 			}
 		} catch(SQLException sqle) {
 			System.out.println(sqle);
@@ -116,7 +118,7 @@ public class PatientDAOImp implements PatientDAO {
 			closeConnection(con);
 		}
 		
-		return resPatient;
+		return resTechnician;
 	}
 
 }

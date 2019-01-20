@@ -1,13 +1,13 @@
 package com.hospital.registry;
 
-import java.util.List;
+import java.util.Set;
 
 public interface AppointmentDAO {
-	public void insert(Appointment appointment);
+	public boolean insert(Appointment appointment);
 	public void update(Appointment appointment);
     public void delete(Appointment appointment);
-	public List<Appointment> findAppointmentByDocMobile(long docMobile);
-	public List<Appointment> findAppointmentByPatMobile(long patMobile);
-	public List<Appointment> findAppointmentByAppID(int appId);
+	public Set<Appointment> findAppointmentByDocMobile(long docMobile);
+	public Set<Appointment> findAppointmentByPatMobile(long patMobile);
+	public Set<Appointment> findAppointmentByAppID(int appId);
 	
 }

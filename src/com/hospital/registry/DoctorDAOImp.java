@@ -40,7 +40,7 @@ public class DoctorDAOImp implements DoctorDAO {
 		try{
 			con = getConnection();
 			PreparedStatement stmt = con.prepareStatement(
-				"insert into doctor values (" + doctor.getdocMobile() +", '" + doctor.getdocName() + "', '" + doctor.getdocPassword() + "', '" + doctor.getdocLocation() + "', '" + doctor.getdocSpecialization() + "', " + doctor.getdocDays()+";");
+				"insert into doctor values (" + doctor.getdocMobile() +", '" + doctor.getdocName() + "', '" + doctor.getdocPassword() + "', '" + doctor.getdocLocation() + "', '" + doctor.getdocSpecialization() + "', " + doctor.getdocDays()+");");
 			int res = stmt.executeUpdate();
 			if(res != 0){
 				System.out.println("Doctor "+ doctor.getdocName() +" was registerd succesfully.");
