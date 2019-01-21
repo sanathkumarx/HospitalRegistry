@@ -82,21 +82,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="patMobile">Mobile</label>
-                        <input type="tel" class="form-control" name="patMobile" id="patMobile" placeholder="Mobile Number">
+                        <input type="tel" class="form-control" name="patMobile" id="patMobile" placeholder="Mobile Number" required>
                         </div>
                         <div class="form-group col-md-6">
                         <label for="patPassword">Password</label>
-                        <input type="password" class="form-control" name="patPassword" id="patPassword" placeholder="Password">
+                        <input type="password" class="form-control" name="patPassword" id="patPassword" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="patName">Name</label>
-                        <input type="text" class="form-control" name="patName" id="patName" placeholder="Full Name">
+                        <input type="text" class="form-control" name="patName" id="patName" placeholder="Full Name" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                         <label for="inputState">State</label>
-                        <select id="inputState" name="patLocation" class="form-control">
+                        <select id="inputState" name="patLocation" class="form-control required">
                             <option value="Telanana" selected>Telangana</option>
                             <option value="Banglore">Banglore</option>
                             <option value="Mumbai">Mumbai</option>
@@ -112,16 +112,16 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="labNumber">Mobile</label>
-                        <input type="tel" class="form-control" name="techMobile" id="labNumber" placeholder="Mobile Number">
+                        <input type="tel" class="form-control" name="techMobile" id="labNumber" placeholder="Mobile Number" required>
                         </div>
                         <div class="form-group col-md-6">
                         <label for="labPassword">Password</label>
-                        <input type="password" class="form-control" name="techPassword" id="labPassword" placeholder="Password">
+                        <input type="password" class="form-control" name="techPassword" id="labPassword" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="labName">Name</label>
-                        <input type="text" class="form-control" name="techName" id="labName" placeholder="Full Name">
+                        <input type="text" class="form-control" name="techName" id="labName" placeholder="Full Name" required>
                     </div>
                     <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Register</button>
                 </form>
@@ -145,7 +145,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="docSpecialization">Specialization</label>
-                            <select id="docSpecialization" name="docSpecialization" class="form-control">
+                            <select id="docSpecialization" name="docSpecialization" class="form-control" required>
                             <option value="Cardiologist" selected>Cardiologist</option>
                             <option value="Neurologist">Neurologist</option>
                             <option value="Radiologist">Radiologist</option>
@@ -154,7 +154,7 @@
                             </div>
                             <div class="form-group col-md-6">
                             <label for="docState">State</label>
-                            <select id="docState" name="docLocation" class="form-control">
+                            <select id="docState" name="docLocation" class="form-control" required>
                                 <option value="Telangana" selected>Telangana</option>
                                 <option value="Chennai">Chennai</option>
                                 <option value="Banglore">Banglore</option>
@@ -163,37 +163,37 @@
                             </div>
                         </div>
                         <div class="form-row">
-                                <div class="form-check form-group col-md-3 offset-md-1">
-                                <input class="form-check-input"  name ="1" value ="1" type="checkbox" id="Monday">
-                                <label class="form-check-label" for="Monday">Monday</label>
+                                <div class="form-check custom-control custom-checkbox form-group col-md-3 offset-md-1">
+                                <input class="form-check-input custom-control-input"  name ="1" value ="1" type="checkbox" id="Monday">
+                                <label class="form-check-label custom-control-label" for="Monday">Monday</label>
                                 </div>
-                                <div class="form-check form-group col-md-3">
-                                <input class="form-check-input"  name="2" value="2" type="checkbox" id="Tuesday">
-                                <label class="form-check-label" for="Tuesday">Tuesday</label>
+                                <div class="form-checkcustom-control custom-checkbox  form-group col-md-3">
+                                <input class="form-check-input custom-control-input"  name="2" value="2" type="checkbox" id="Tuesday">
+                                <label class="form-check-label custom-control-label" for="Tuesday">Tuesday</label>
                                 </div>
-                                <div class="form-check form-group col-md-3">
-                                <input class="form-check-input"  name="3" value="3"  type="checkbox" id="Wednesday">
-                                <label class="form-check-label" for="Wednesday">Wednesday</label>
-                                </div>
-                        </div>
-                        <div class="form-row">
-                                <div class="form-check form-group col-md-3 offset-md-1">
-                                <input class="form-check-input"   name="4" value="4"  type="checkbox" id="Thursday">
-                                <label class="form-check-label" for="Thursday">Thursday</label>
-                                </div>
-                                <div class="form-check form-group col-md-3">
-                                <input class="form-check-input"   name="5" value="5"  type="checkbox" id="Friday">
-                                <label class="form-check-label" for="Friday">Friday</label>
-                                </div>
-                                <div class="form-check form-group col-md-3">
-                                <input class="form-check-input"   name="6" value="6"  type="checkbox" id="Saturday">
-                                <label class="form-check-label" for="Saturday">Saturday</label>
+                                <div class="form-check custom-control custom-checkbox form-group col-md-3">
+                                <input class="form-check-input custom-control-input"  name="3" value="3"  type="checkbox" id="Wednesday">
+                                <label class="form-check-label custom-control-label" for="Wednesday">Wednesday</label>
                                 </div>
                         </div>
                         <div class="form-row">
-                                <div class="form-check col-md-3 offset-md-1">
-                                <input class="form-check-input"   name="7" value="7"  type="checkbox" id="Sunday">
-                                <label class="form-check-label" for="Sunday">Sunday</label>
+                                <div class="form-check custom-control custom-checkbox form-group col-md-3 offset-md-1">
+                                <input class="form-check-input custom-control-input"   name="4" value="4"  type="checkbox" id="Thursday">
+                                <label class="form-check-label custom-control-label" for="Thursday">Thursday</label>
+                                </div>
+                                <div class="form-check custom-control custom-checkbox form-group col-md-3">
+                                <input class="form-check-input custom-control-input"   name="5" value="5"  type="checkbox" id="Friday">
+                                <label class="form-check-label custom-control-label" for="Friday">Friday</label>
+                                </div>
+                                <div class="form-check custom-control custom-checkbox form-group col-md-3">
+                                <input class="form-check-input custom-control-input"   name="6" value="6"  type="checkbox" id="Saturday">
+                                <label class="form-check-label custom-control-label" for="Saturday">Saturday</label>
+                                </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-check custom-control custom-checkbox col-md-3 offset-md-1">
+                                <input class="form-check-input custom-control-input"   name="7" value="7"  type="checkbox" id="Sunday">
+                                <label class="form-check-label custom-control-label" for="Sunday">Sunday</label>
                                 </div>
                         </div>
                        

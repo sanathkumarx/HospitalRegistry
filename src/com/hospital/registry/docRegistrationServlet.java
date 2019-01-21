@@ -32,6 +32,7 @@ public class docRegistrationServlet extends HttpServlet {
 				docDays +=request.getParameter(Integer.toString(i));
 			}
 		}
+		if(docDays.length() == 0) docDays += "0";
 		Doctor Doc = new Doctor();
 		Doc.setdocDays(Integer.parseInt(docDays));
 		Doc.setdocLocation(docLocation);

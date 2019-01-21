@@ -99,7 +99,8 @@ public class PatientDAOImp implements PatientDAO {
 		
 		try {
 			con = getConnection();
-			PreparedStatement stmt = con.prepareStatement("Select patMobile,patName,patLocation from patient where patMobile = " + patMobile);
+			System.out.println("Select patMobile,patName,patLocation from patient where patMobile = " + patMobile+";");
+			PreparedStatement stmt = con.prepareStatement("Select patMobile,patName,patLocation from patient where patMobile = " + patMobile+";");
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				resPatient.setpatLocation(rs.getString("patLocation"));

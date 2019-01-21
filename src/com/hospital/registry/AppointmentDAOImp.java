@@ -19,7 +19,7 @@ public class AppointmentDAOImp implements AppointmentDAO {
 	}
 	
 	private Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql:/localhost:3306/hospitalregistry", "root", "Kmit123$");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalregistry", "root", "Kmit123$");
 	}
 	
 	private void closeConnection(Connection con) {
@@ -56,7 +56,19 @@ public class AppointmentDAOImp implements AppointmentDAO {
 	}
 
 	@Override
-	public void update(Appointment appointment) {
+	public void update(String appID) {
+		Connection con = null;
+		
+		try {
+			con = getConnection();
+			PreparedStatement stmt = con.prepareStatement("Update appointment set appStatus=1 where appID = "+appID+";");
+			stmt.executeUpdate();
+
+		} catch(SQLException sqle) {
+			System.out.println(sqle);
+		} finally {
+			closeConnection(con);
+		}
 	}
 
 	@Override

@@ -31,11 +31,11 @@ public class LoginServlet extends HttpServlet {
 				DoctorDAO DoctorDao = new DoctorDAOImp();
 				long mobile = Long.parseLong(usermobile);
 				Doctor doc = DoctorDao.findDoctor(mobile);
-				request.setAttribute("docName", doc.getdocName());
 				out.println(doc.getdocName());
 				if(DoctorDao.validate(mobile, userpassword)) {
 					System.out.println("log in successful");
-					request.setAttribute("usermobile", usermobile);
+					request.setAttribute("docName", doc.getdocName());
+					request.setAttribute("docMobile", usermobile);
 			        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  
 			        rd.forward(request, response);  
 				}else {
@@ -47,12 +47,15 @@ public class LoginServlet extends HttpServlet {
 			break;
 		case "patient":
 			try {
-				DoctorDAO DoctorDao = new DoctorDAOImp();
+				PatientDAO patientDao = new PatientDAOImp();
+				out.println(usermobile);
 				long mobile = Long.parseLong(usermobile);
-				if(DoctorDao.validate(mobile, userpassword)) {
+				Patient pat = patientDao.findPatient(mobile);
+				out.println(pat.getpatName());
+				if(patientDao.validate(mobile, userpassword)) {
 					System.out.println("log in successful");
 					request.setAttribute("usermobile", Long.toString(mobile));
-			        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  
+			        RequestDispatcher rd=request.getRequestDispatcher("patProfile.jsp");  
 			        rd.forward(request, response);  
 				}else {
 					out.println("Invalid Username/password");
