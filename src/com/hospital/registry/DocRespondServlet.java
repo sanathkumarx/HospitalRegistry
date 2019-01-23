@@ -27,6 +27,7 @@ public class DocRespondServlet extends HttpServlet {
 		rep.setappId(Integer.parseInt(request.getParameter("appId")));
 		rep.setrepStatus(0);
 		rep.settechMobile(777777777);
+		rep.setPath("");
 		String[] tname = new String[6];
 		tname[0] = request.getParameter("Ultra-sonogram");
 		tname[1] = request.getParameter("X-Ray");

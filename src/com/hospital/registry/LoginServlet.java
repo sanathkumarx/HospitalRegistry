@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/LoginServlet")
@@ -24,6 +25,7 @@ public class LoginServlet extends HttpServlet {
 		String userpassword = request.getParameter("userPassword");
 		String userposition = request.getParameter("userPosition");
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 		response.setContentType("text/html");
 		switch(userposition) {
 		case "doctor":
@@ -33,6 +35,7 @@ public class LoginServlet extends HttpServlet {
 				Doctor doc = DoctorDao.findDoctor(mobile);
 				out.println(doc.getdocName());
 				if(DoctorDao.validate(mobile, userpassword)) {
+					session.setAttribute("daocMobile", mobile);
 					System.out.println("log in successful");
 					request.setAttribute("docName", doc.getdocName());
 					request.setAttribute("docMobile", usermobile);
@@ -53,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 				Patient pat = patientDao.findPatient(mobile);
 				out.println(pat.getpatName());
 				if(patientDao.validate(mobile, userpassword)) {
+					session.setAttribute("daocMobile", mobile);
 					System.out.println("log in successful");
 					request.setAttribute("usermobile", Long.toString(mobile));
 			        RequestDispatcher rd=request.getRequestDispatcher("patProfile.jsp");  
@@ -69,6 +73,7 @@ public class LoginServlet extends HttpServlet {
 				DoctorDAO DoctorDao = new DoctorDAOImp();
 				long mobile = Long.parseLong(usermobile);
 				if(DoctorDao.validate(mobile, userpassword)) {
+					session.setAttribute("daocMobile", mobile);
 					System.out.println("log in successful");
 					request.setAttribute("usermobile", Long.toString(mobile));
 			        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  

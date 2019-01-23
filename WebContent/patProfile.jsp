@@ -28,35 +28,35 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <%
-        	String docMobile = (String)request.getAttribute("docMobile");
-        	Doctor Doc = new DoctorDAOImp().findDoctor(Long.parseLong(docMobile));
-        	out.println("<h5 offset-md-5>"+ Doc.getdocName()+"</h5><br>");
+        	String patMobile = (String)request.getAttribute("usermobile");
+        	Patient Pat = new PatientDAOImp().findPatient(Long.parseLong(patMobile));
+        	out.println("<h5 offset-md-5>"+ Pat.getpatName()+"</h5><br>");
             %>
             </ul>
-            <a class="nav-link" href="logoutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
+            <a class="nav-link" href="#"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
 
         </div>
     </nav>
 	<%
 	AppointmentDAO appointmentDAO = new AppointmentDAOImp();
-	Set<Appointment> appointments = appointmentDAO.findAppointmentByDocMobile(Long.parseLong(docMobile));
+	Set<Appointment> appointments = appointmentDAO.findAppointmentByPatMobile(Long.parseLong(patMobile));
 	out.println("<h7>Appointments</h7>");
 	out.println("<table class=\"table table-hover table-borderless table-dark\">");
 	out.println(" <thead>");
 	out.println("   <tr>");
 	out.println("     <th scope=\"col\">App Id</th>");
-	out.println("     <th scope=\"col\">Patient</th>");
+	out.println("     <th scope=\"col\">Doctor</th>");
 	out.println("     <th scope=\"col\">Appointment date</th>");
 	out.println("     <th scope=\"col\">Status</th>");
-	out.println("     <th scope=\"col\">Respond</th>");
+	out.println("     <th scope=\"col\">Report</th>");
 	out.println("   </tr>");
 	out.println(" </thead>");
 	out.println(" <tbody>");
 	for(Appointment app:appointments){
 		out.println("   <tr>");
 		out.println("     <th scope=\"row\">"+app.getappId()+"</th>");
-		Patient pat = new PatientDAOImp().findPatient(app.getpatMobile());
-		out.println("     <td>"+pat.getpatName()+"</td>");
+		Doctor Doc = new DoctorDAOImp().findDoctor(app.getdocMobile());
+		out.println("     <td>"+Doc.getdocName()+"</td>");
 		out.println("     <td>"+app.getappDate()+"</td>");
 		if(app.getappStatus()==1){
 			out.println("     <td>Completed</td>");
@@ -64,11 +64,12 @@
 		else{
 			out.println("     <td>Pending</td>");	
 		}
-		out.println("<td><form action=\"docRespond.jsp\">");
-		out.println("<input type=\"hidden\" name=\"docMobile\" value=\""+ (String)request.getAttribute("docMobile") +"\"/>");		
+		out.println("<td><form action=\"getReportServlet\">");
+		out.println("<input type=\"hidden\" name=\"docMobile\" value=\""+ (String)request.getAttribute("") +"\"/>");		
 		out.println("     <button type=\"submit\" class=\"btn btn-primary\" name=\"appId\" value=\""+app.getappId()+"\">Respond</button>");
 		out.println("</form></td>");
 		out.println("   </tr>");
+		
 	}
 
 	%>

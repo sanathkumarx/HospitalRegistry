@@ -45,7 +45,7 @@ public class ReportsDAOImp implements ReportsDAO {
 		boolean bool = false;
 		try {
 			con = getConnection();
-			PreparedStatement stmt = con.prepareStatement("Insert into reports values (" + "NULL" + ", " + report.getappId() + ", " + report.gettechMobile() + ", '" + report.gettestName() + "', " + report.getrepStatus() + ");"); 
+			PreparedStatement stmt = con.prepareStatement("Insert into reports values (" + "NULL" + ", " + report.getappId() + ", " + report.gettechMobile() + ", '" + report.gettestName() + "', " + report.getrepStatus() + ", '"+report.getPath()+"');"); 
 			int res = stmt.executeUpdate();
 			if(res != 0) {
 				bool = true;

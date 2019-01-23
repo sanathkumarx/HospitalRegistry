@@ -6,6 +6,7 @@ public class Reports {
 	long techMobile;
 	int repStatus;
 	String testName;
+	String path;
 	
 	public int getrepId() {
 		return repId;
@@ -40,6 +41,13 @@ public class Reports {
 	}
 	public void settestName(String testName) {
 		this.testName = testName;
+	}
+	
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 }
