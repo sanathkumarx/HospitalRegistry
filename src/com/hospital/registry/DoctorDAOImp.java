@@ -73,7 +73,6 @@ public class DoctorDAOImp implements DoctorDAO {
 			con = getConnection();
 			PreparedStatement stmt = con.prepareStatement(
 				"Select docPassword from doctor where docMobile = " + docMobile+";");
-			System.out.println("Select docPassword from doctor where docMobile = " + docMobile + ";");
 			ResultSet rs = stmt.executeQuery();
 			String actualPassword = "";
 			while(rs.next()) {

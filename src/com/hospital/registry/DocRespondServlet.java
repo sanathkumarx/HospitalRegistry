@@ -41,14 +41,14 @@ public class DocRespondServlet extends HttpServlet {
 			rep.settestName(tname[i]);
 			if(reportsDAO.insert(rep)) {
 				appointmentDAO.update(request.getParameter("appId"));
-				System.out.println("Reported added succesfully");
 				request.setAttribute("docMobile", request.getParameter("docMobile"));
-		        RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");  
-		        rd.forward(request, response);  
 			} else {
+				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
 				out.println("An error occoured please try again");
 			}
+			RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");
+	        rd.forward(request, response);  
 		}
 	}
 

@@ -26,9 +26,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <%
-        	String docMobile = (String)request.getAttribute("docMobile");
-        	Doctor Doc = new DoctorDAOImp().findDoctor(Long.parseLong(docMobile));
-        	out.println("<h5 offset-md-5>"+ Doc.getdocName()+"</h5><br>");
+        	//String docMobile = (String)request.getAttribute("docMobile");
+        	//Doctor Doc = new DoctorDAOImp().findDoctor(Long.parseLong(docMobile));
+        	//out.println("<h5 offset-md-5>"+ Doc.getdocName()+"</h5><br>");
             %>
             </ul>
             <a class="nav-link" href="logoutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>

@@ -18,19 +18,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <%
-        	String docMobile = (String)request.getAttribute("docMobile");
+        	String docMobile = (String)session.getAttribute("docMobile");
         	Doctor Doc = new DoctorDAOImp().findDoctor(Long.parseLong(docMobile));
-        	out.println("<h5 offset-md-5>"+ Doc.getdocName()+"</h5><br>");
+        	out.println("<h5 offset-md-5>"+ session.getAttribute("docName")+"</h5><br>");
             %>
             </ul>
-            <a class="nav-link" href="logoutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
+            <a class="nav-link" href="logutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
 
         </div>
     </nav>
 	<%
 	AppointmentDAO appointmentDAO = new AppointmentDAOImp();
 	Set<Appointment> appointments = appointmentDAO.findAppointmentByDocMobile(Long.parseLong(docMobile));
-	//out.println("<div class=\"panel panel-default\">");
+	out.println(appointments.size());
 	out.println("<blockquote class=\"blockquote text-center\">");
 	out.println("<h1 class=\"display-4 text-uppercase\">Appointments</h1>");
 	out.println("</blockquote>");
@@ -58,13 +58,12 @@
 			out.println("     <td>Pending</td>");	
 		}
 		out.println("<td><form action=\"docRespond.jsp\">");
-		out.println("<input type=\"hidden\" name=\"docMobile\" value=\""+ (String)request.getAttribute("docMobile") +"\"/>");		
+		out.println("	  <input type=\"hidden\" name=\"docMobile\" value=\""+session.getAttribute("docMobile") +"\"/>");		
 		out.println("     <button type=\"submit\" class=\"btn btn-primary\" name=\"appId\" value=\""+app.getappId()+"\">Respond</button>");
 		out.println("</form></td>");
 		out.println("   </tr>");
 	}
 	out.println(" </table>");
-	//out.println(" </div>");
 	%>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

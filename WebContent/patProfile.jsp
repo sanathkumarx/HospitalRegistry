@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.hospital.registry.Doctor"%>
-<%@ page import="com.hospital.registry.DoctorDAO"%>  
-<%@ page import="com.hospital.registry.DoctorDAOImp"%> 
-<%@ page import="com.hospital.registry.Patient"%>
-<%@ page import="com.hospital.registry.PatientDAO"%>  
-<%@ page import="com.hospital.registry.PatientDAOImp"%>   
-<%@ page import="com.hospital.registry.Appointment"%>
-<%@ page import="com.hospital.registry.AppointmentDAO"%>
-<%@ page import="com.hospital.registry.AppointmentDAOImp"%>
-<%@ page import="java.util.Set"%>
-<%@ page import="java.util.Enumeration"%>
+<%@ page import="com.hospital.registry.*,java.util.Set,java.util.Enumeration"%>
 <!doctype html>
 <html lang="en">
   <head>
