@@ -30,7 +30,7 @@
 	<%
 	AppointmentDAO appointmentDAO = new AppointmentDAOImp();
 	Set<Appointment> appointments = appointmentDAO.findAppointmentByDocMobile(Long.parseLong(docMobile));
-	out.println(appointments.size());
+	if(appointments.size()>0){
 	out.println("<blockquote class=\"blockquote text-center\">");
 	out.println("<h1 class=\"display-4 text-uppercase\">Appointments</h1>");
 	out.println("</blockquote>");
@@ -64,6 +64,11 @@
 		out.println("   </tr>");
 	}
 	out.println(" </table>");
+	}
+	else{
+		out.println("<h1 class=\"text-monospace text-muted col-md-6 offset-md-4 text-uppercase\">NO APPOINTMENTS TODAY</h1>");
+		out.println("<img src=\"Images/stethescope.png\" class=\"rounded mx-auto d-block\" alt=\"stethescope\">");
+	}
 	%>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

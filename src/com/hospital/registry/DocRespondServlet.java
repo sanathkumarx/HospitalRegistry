@@ -39,17 +39,20 @@ public class DocRespondServlet extends HttpServlet {
 		AppointmentDAO appointmentDAO = new AppointmentDAOImp(); 
 		for(int i=0;i<6;i++) {
 			rep.settestName(tname[i]);
+			System.out.println(tname[i]);
+			if(tname[i]==null) continue;
 			if(reportsDAO.insert(rep)) {
 				appointmentDAO.update(request.getParameter("appId"));
 				request.setAttribute("docMobile", request.getParameter("docMobile"));
 			} else {
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
-				out.println("An error occoured please try again");
+				System.out.println("An error occoured please try again");
 			}
-			RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");
-	        rd.forward(request, response);  
 		}
+//		RequestDispatcher rd=request.getRequestDispatcher("docProfile.jsp");
+//        rd.forward(request, response);  
+		response.sendRedirect("docProfile.jsp");
 	}
 
 }
