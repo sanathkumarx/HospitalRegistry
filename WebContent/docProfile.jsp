@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.hospital.registry.Doctor"%>
-<%@ page import="com.hospital.registry.DoctorDAO"%>  
-<%@ page import="com.hospital.registry.DoctorDAOImp"%> 
-<%@ page import="com.hospital.registry.Patient"%>
-<%@ page import="com.hospital.registry.PatientDAO"%>  
-<%@ page import="com.hospital.registry.PatientDAOImp"%>   
-<%@ page import="com.hospital.registry.Appointment"%>
-<%@ page import="com.hospital.registry.AppointmentDAO"%>
-<%@ page import="com.hospital.registry.AppointmentDAOImp"%>
-<%@ page import="java.util.Set"%>
-<%@ page import="java.util.Enumeration"%>
+<%@ page import="com.hospital.registry.*,java.util.Set,java.util.Enumeration"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,8 +30,11 @@
 	<%
 	AppointmentDAO appointmentDAO = new AppointmentDAOImp();
 	Set<Appointment> appointments = appointmentDAO.findAppointmentByDocMobile(Long.parseLong(docMobile));
-	out.println("<h7>Appointments</h7>");
-	out.println("<table class=\"table table-hover table-borderless table-dark\">");
+	//out.println("<div class=\"panel panel-default\">");
+	out.println("<blockquote class=\"blockquote text-center\">");
+	out.println("<h1 class=\"display-4 text-uppercase\">Appointments</h1>");
+	out.println("</blockquote>");
+	out.println("<table class=\"table table-hover table-borderless m-5 rounded table-dark col-md-11\">");
 	out.println(" <thead>");
 	out.println("   <tr>");
 	out.println("     <th scope=\"col\">App Id</th>");
@@ -70,7 +63,8 @@
 		out.println("</form></td>");
 		out.println("   </tr>");
 	}
-
+	out.println(" </table>");
+	//out.println(" </div>");
 	%>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
