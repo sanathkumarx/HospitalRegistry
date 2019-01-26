@@ -32,7 +32,6 @@ public class LoginServlet extends HttpServlet {
 				DoctorDAO DoctorDao = new DoctorDAOImp();
 				long mobile = Long.parseLong(usermobile);
 				Doctor doc = DoctorDao.findDoctor(mobile);
-				out.println(doc.getdocName());
 				if(DoctorDao.validate(mobile, userpassword)) {
 					HttpSession session = request.getSession();
 					session.setAttribute("docMobile", usermobile);
@@ -51,15 +50,14 @@ public class LoginServlet extends HttpServlet {
 				PatientDAO patientDao = new PatientDAOImp();
 				long mobile = Long.parseLong(usermobile);
 				Patient pat = patientDao.findPatient(mobile);
-				out.println(pat.getpatName());
 				if(patientDao.validate(mobile, userpassword)) {
 					HttpSession session = request.getSession();
-					session.setAttribute("patMobile", mobile);
+					session.setAttribute("patMobile", usermobile);
 					session.setAttribute("patName", pat.getpatName());
 					System.out.println("log in successful");
 					response.sendRedirect("patProfile.jsp"); 
 				}else {
-					out.println("Invalid Username/password");
+					out.println("<h1>Invalid Username/password</h1>");
 				}
 			} catch(Exception e) {
 				e.printStackTrace();
