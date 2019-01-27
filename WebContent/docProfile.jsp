@@ -44,6 +44,7 @@
 	out.println("     <th scope=\"col\">Appointment date</th>");
 	out.println("     <th scope=\"col\">Status</th>");
 	out.println("     <th scope=\"col\">Respond</th>");
+	out.println("     <th scope=\"col\">Reports</th>");
 	out.println("   </tr>");
 	out.println(" </thead>");
 	out.println(" <tbody>");
@@ -63,6 +64,9 @@
 		out.println("	  <input type=\"hidden\" name=\"docMobile\" value=\""+session.getAttribute("docMobile") +"\"/>");		
 		out.println("     <button type=\"submit\" class=\"btn btn-primary\" name=\"appId\" value=\""+app.getappId()+"\">Respond</button>");
 		out.println("</form></td>");
+		out.println("<td>");
+		out.println("     <a class=\"btn btn-success\" role=\"button\" href=\"Reports/"+app.getappId()+".rar\" download=\"Report.rar\">Dowload</a>");
+		out.println("</td>");
 		out.println("   </tr>");
 	}
 	out.println(" </table>");

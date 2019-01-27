@@ -50,7 +50,7 @@
 				out.println("     <th scope=\"col\">Doctor</th>");
 				out.println("     <th scope=\"col\">Appointment date</th>");
 				out.println("     <th scope=\"col\">Status</th>");
-				out.println("     <th scope=\"col\">Report</th>");
+				out.println("     <th scope=\"col\">Reports</th>");
 				out.println("   </tr>");
 				out.println(" </thead>");
 				out.println(" <tbody>");
@@ -67,8 +67,6 @@
 						out.println("     <td>Pending</td>");	
 					}
 					out.println("<td>");
-					ReportsDAO rep = new ReportsDAOImp();
-					Set<Reports> reports = rep.findReportByAppID(app.getappId());
 					out.println("     <a class=\"btn btn-success\" role=\"button\" href=\"Reports/"+app.getappId()+".rar\" download=\"Report.rar\">Dowload</a>");
 					out.println("</td>");
 					out.println("   </tr>");
@@ -81,7 +79,74 @@
 				}
 			%>
 		  </div>
-		  <div class="tab-pane fade" id="book-app" role="tabpanel" aria-labelledby="pills-profile-tab">GGG</div>
+		  <div class="tab-pane fade" id="book-app" role="tabpanel" aria-labelledby="book-app-tab">
+		  	<%
+				DoctorDAO doctorDAO = new DoctorDAOImp();
+				Set<Doctor> doctors = doctorDAO.findDoctorsByFilters("%", "%", "%");
+				if(doctors.size()>0){
+				out.println("<blockquote class=\"blockquote text-center\">");
+				out.println("</blockquote>");
+				out.println("<table class=\"table table-hover table-borderless m-5 rounded table-dark col-md-11\">");
+				out.println(" <thead>");
+				out.println("   <tr>");
+				out.println("     <th scope=\"col\"Doctor</th>");
+				out.println("     <th scope=\"col\">Mobile</th>");
+				out.println("     <th scope=\"col\">Speciality</th>");
+				out.println("     <th scope=\"col\">Days of working</th>");
+				out.println("     <th scope=\"col\">Book</th>");
+				out.println("   </tr>");
+				out.println(" </thead>");
+				out.println(" <tbody>");
+				
+				for(Doctor doc:doctors){
+					out.println("   <tr>");
+					out.println("     <th scope=\"row\">"+doc.getdocName()+"</th>");
+					out.println("     <td>"+doc.getdocMobile()+"</td>");
+					out.println("     <td>"+doc.getdocSpecialization()+"</td>");
+					StringBuilder num = new StringBuilder(Integer.toString(doc.getdocDays()));
+					num.reverse();
+					StringBuilder sb = new StringBuilder();
+					while(num.length()>0){
+						switch(num.charAt(num.length()-1)){
+							case '1':
+								sb.append("Monday");
+								break;
+							case '2':
+								sb.append("Tuesday");
+								break;
+							case '3':
+								sb.append("Wednesday");
+								break;
+							case '4':
+								sb.append("Thursday");
+								break;
+							case '5':
+								sb.append("Friday");
+								break;
+							case '6':
+								sb.append("Saturday");
+								break;
+							case '7':
+								sb.append("Sunday");
+								break;
+						}
+						num.deleteCharAt(num.length()-1);
+						if(num.length()>0) sb.append(", ");			
+					}
+					out.println("     <td>"+sb+"</td>");
+					out.println("<td>");
+					out.println("     <a class=\"btn btn-success\" role=\"button\" href=\"bookAppointmentServlet\">Book Appointment</a>");
+					out.println("</td>");
+					out.println("   </tr>");
+				}
+				out.println(" </table>");
+				}
+				else{
+					out.println("<h1 class=\"text-monospace text-muted col-md-6 offset-md-4 text-uppercase\">NO DOCTORS AVAILABLE</h1>");
+					out.println("<img src=\"Images/stethescope.png\" class=\"rounded mx-auto d-block\" alt=\"stethescope\">");
+				}
+		  	%>
+		  </div>
 		</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

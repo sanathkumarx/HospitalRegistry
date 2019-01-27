@@ -121,10 +121,9 @@ public class DoctorDAOImp implements DoctorDAO {
 		Set<Doctor> doctorsByAvail = new LinkedHashSet<>();
 		Set<Doctor> doctorsBySpec= new LinkedHashSet<>();
 		Connection con = null;
-		String sqlLocation = "Select docName,docMobile,docLocation,docSpecialization,docDays from doctor where docLocation = '" + location + "'";
-		String sqlAvailablity = "Select docName,docMobile,docLocation,docSpecialization,docDays from doctor where docAvailablity = '" + availablity + "'";
-		String sqlSpecialization = "Select docName,docMobile,docLocation,docSpecialization,docDays from doctor where docSpecialization = '" + specialization + "'";
-		
+		String sqlLocation = "Select docName,docMobile,docLocation,docSpecialization,docDays from doctor where docLocation like '" + location + "'";
+		String sqlAvailablity = "Select docName,docMobile,docLocation,docSpecialization,docDays from doctor where docDays like '" + availablity + "'";
+		String sqlSpecialization = "Select docName,docMobile,docLocation,docSpecialization,docDays from doctor where docSpecialization like '" + specialization + "'";
 		try {
 			con = getConnection();
 			PreparedStatement stmt = con.prepareStatement(sqlLocation);
@@ -135,7 +134,7 @@ public class DoctorDAOImp implements DoctorDAO {
 			tempdoc1.setdocMobile(rs.getLong("docMobile"));
 			tempdoc1.setdocLocation(rs.getString("docLocation"));
 			tempdoc1.setdocSpecialization(rs.getString("docSpecialization"));
-			tempdoc1.setdocDays(rs.getInt("sdocDays"));
+			tempdoc1.setdocDays(rs.getInt("docDays"));
 			doctorsByLoc.add(tempdoc1);
 			}
 			stmt = con.prepareStatement(sqlAvailablity);
@@ -146,7 +145,7 @@ public class DoctorDAOImp implements DoctorDAO {
 			tempdoc2.setdocMobile(rs.getLong("docMobile"));
 			tempdoc2.setdocLocation(rs.getString("docLocation"));
 			tempdoc2.setdocSpecialization(rs.getString("docSpecialization"));
-			tempdoc2.setdocDays(rs.getInt("sdocDays"));
+			tempdoc2.setdocDays(rs.getInt("docDays"));
 			doctorsByAvail.add(tempdoc2);
 			}
 			stmt = con.prepareStatement(sqlSpecialization);
@@ -157,7 +156,7 @@ public class DoctorDAOImp implements DoctorDAO {
 			tempdoc3.setdocMobile(rs.getLong("docMobile"));
 			tempdoc3.setdocLocation(rs.getString("docLocation"));
 			tempdoc3.setdocSpecialization(rs.getString("docSpecialization"));
-			tempdoc3.setdocDays(rs.getInt("sdocDays"));
+			tempdoc3.setdocDays(rs.getInt("docDays"));
 			doctorsBySpec.add(tempdoc3);
 			}
 			
@@ -166,10 +165,11 @@ public class DoctorDAOImp implements DoctorDAO {
 		} finally {
 			closeConnection(con);
 		}
-		Set<Doctor> doctors= new LinkedHashSet<>(doctorsBySpec);
-		doctors.retainAll(doctorsByAvail);
-		doctors.retainAll(doctorsBySpec);
-		return doctors;
+		Set<Doctor> docto= new LinkedHashSet<>();
+		docto.addAll(doctorsByLoc);
+		docto.retainAll(doctorsByAvail);
+		docto.retainAll(doctorsBySpec);
+		return docto;
 	}
 
 }

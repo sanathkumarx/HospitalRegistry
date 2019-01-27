@@ -53,5 +53,15 @@ public class Doctor{
 	public void setdocDays(int docDays) {
 		this.docDays = docDays;
 	}
+	@Override
+	public boolean equals(Object d) {
+		Doctor temp = (Doctor)d;
+		return temp.getdocMobile() == this.getdocMobile();
+	}
+	
+	@Override
+    public int hashCode() {
+        return Long.hashCode(docMobile);
+    }
 	
 }
