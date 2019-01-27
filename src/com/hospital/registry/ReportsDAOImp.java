@@ -103,12 +103,12 @@ public class ReportsDAOImp implements ReportsDAO {
 		
 		try {
 			con = getConnection();
-			PreparedStatement stmt = con.prepareStatement("select * from appointment where appID = " + appId);
+			PreparedStatement stmt = con.prepareStatement("select * from reports where appID = " + appId);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Reports report = new Reports();
-				report.setrepId(rs.getInt("repId")); 
-				report.setappId(rs.getInt("appId"));
+				report.setrepId(rs.getInt("repID")); 
+				report.setappId(rs.getInt("appID"));
 				report.settechMobile(rs.getLong("techMobile"));
 				report.settestName(rs.getString("testName"));
 				report.setrepStatus(rs.getInt("repStatus"));

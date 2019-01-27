@@ -66,10 +66,11 @@
 					else{
 						out.println("     <td>Pending</td>");	
 					}
-					out.println("<td><form action=\"docRespond.jsp\">");
-					out.println("	  <input type=\"hidden\" name=\"docMobile\" value=\""+session.getAttribute("docMobile") +"\"/>");		
-					out.println("     <button type=\"submit\" class=\"btn btn-primary\" name=\"appId\" value=\""+app.getappId()+"\">Download</button>");
-					out.println("</form></td>");
+					out.println("<td>");
+					ReportsDAO rep = new ReportsDAOImp();
+					Set<Reports> reports = rep.findReportByAppID(app.getappId());
+					out.println("     <a class=\"btn btn-success\" role=\"button\" href=\"Reports/"+app.getappId()+".rar\" download=\"Report.rar\">Dowload</a>");
+					out.println("</td>");
 					out.println("   </tr>");
 				}
 				out.println(" </table>");
