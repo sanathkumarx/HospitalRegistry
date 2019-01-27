@@ -25,11 +25,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+            <a class="nav-link active" href="docProfile.jsp">
             <%
-        	//String docMobile = (String)request.getAttribute("docMobile");
-        	//Doctor Doc = new DoctorDAOImp().findDoctor(Long.parseLong(docMobile));
-        	//out.println("<h5 offset-md-5>"+ Doc.getdocName()+"</h5><br>");
+        	String docMobile = (String)session.getAttribute("docMobile");
+        	Doctor Doc = new DoctorDAOImp().findDoctor(Long.parseLong(docMobile));
+        	out.println("<h5 offset-md-5>"+ session.getAttribute("docName")+"</h5><br>");
             %>
+            </a>
             </ul>
             <a class="nav-link" href="logoutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
 
