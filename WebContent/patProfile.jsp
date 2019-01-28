@@ -80,6 +80,92 @@
 			%>
 		  </div>
 		  <div class="tab-pane fade" id="book-app" role="tabpanel" aria-labelledby="book-app-tab">
+		  <ul class="nav nav-pills" id="myTab" role="tablist">
+			  <li class="nav-item">
+			    <a class="nav-link" id="filters-tab" data-toggle="tab" href="#filters" role="tab" aria-controls="filters" aria-selected="false">Filters</a>
+			  </li>
+  			  <li class="nav-item">
+			    <a class="nav-link" id="hide-tab" data-toggle="tab" href="#hide" role="tab" aria-controls="hide" aria-selected="false">Hide</a>
+			  </li>
+		  </ul>
+		  <div class="tab-content" id="myTabContent">
+		 	 <div class="tab-pane fade" id="filters" role="tabpanel" aria-labelledby="filters-tab">.
+		  	  <form class="padder" method="post" action="patProfile.jsp">
+		  	  <p class="h6" style="padding-left:90px;">Days</p>
+		           <div class="form-row">
+		                   <div class="form-checkcustom-control custom-checkbox  form-group offset-md-1 auto-mx col-md-1">
+		                   <input class="form-check-input custom-control-input"  name="Monday" value="Monday" type="checkbox" id="Monday">
+		                   <label class="form-check-label custom-control-label" for="Monday">Monday</label>
+		                   </div>
+		                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-1">
+		                   <input class="form-check-input custom-control-input"  name ="Tuesday" value ="Tuesday" type="checkbox" id="Tuesday">
+		                   <label class="form-check-label custom-control-label" for="Tuesday">Tuesday</label>
+		                   </div>
+		                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-1">
+		                   <input class="form-check-input custom-control-input"  name="Wednesday" value="Wednesday"  type="checkbox" id="Wednesday">
+		                   <label class="form-check-label custom-control-label" for="Wednesday">Wednesday</label>
+		                   </div>
+		                   <div class="form-check custom-control custom-checkbox form-group auto-mx  col-md-1" style="padding-left:20px">
+		                   <input class="form-check-input custom-control-input"   name="Thursday" value="Thursday"  type="checkbox" id="Thursday">
+		                   <label class="form-check-label custom-control-label" for="Thursday">Thursday</label>
+		                   </div>
+		                   <div class="form-check custom-control custom-checkbox form-group auto-mx  col-md-1" style="padding-left:20px">
+		                   <input class="form-check-input custom-control-input"   name="Friday" value="Friday"  type="checkbox" id="Friday">
+		                   <label class="form-check-label custom-control-label" for="Friday">Friday</label>
+		                   </div>
+		                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-1" style="padding-left:20px">
+		                   <input class="form-check-input custom-control-input"   name="Saturday" value="Saturday"  type="checkbox" id="Saturday">
+		                   <label class="form-check-label custom-control-label" for="Saturday">Saturday</label>
+		                   </div>
+		                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-1" style="padding-left:20px">
+		                   <input class="form-check-input custom-control-input"   name="Sunday" value="Sunday"  type="checkbox" id="Sunday">
+		                   <label class="form-check-label custom-control-label" for="Sunday">Sunday</label>
+		                   </div>
+		           </div>
+		  	  <p class="h6" style="padding-left:90px;">Specialization</p>
+		           <div class="form-row">
+	                   <div class="form-checkcustom-control custom-checkbox  form-group offset-md-1 auto-mx col-md-2">
+	                   <input class="form-check-input custom-control-input"  name="Cardiologist" value="Cardiologist" type="checkbox" id="Cardiologist">
+	                   <label class="form-check-label custom-control-label" for="Cardiologist">Cardiologist</label>
+	                   </div>
+	                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-2">
+	                   <input class="form-check-input custom-control-input"  name ="Neurologist" value ="Neurologist" type="checkbox" id="Neurologist">
+	                   <label class="form-check-label custom-control-label" for="Neurologist">Neurologist</label>
+	                   </div>
+	                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-2">
+	                   <input class="form-check-input custom-control-input"  name="Radiologist" value="Radiologist"  type="checkbox" id="Radiologist">
+	                   <label class="form-check-label custom-control-label" for="Radiologist">Radiologist</label>
+	                   </div>
+	                   <div class="form-check custom-control custom-checkbox form-group auto-mx  col-md-2">
+	                   <input class="form-check-input custom-control-input"   name="Dermatologist" value="Dermatologist"  type="checkbox" id="Dermatologist">
+	                   <label class="form-check-label custom-control-label" for="Dermatologist">Dermatologist</label>
+	                   </div>
+		           </div>
+		  	  <p class="h6" style="padding-left:90px;">Location</p>
+		           <div class="form-row">
+	                   <div class="form-checkcustom-control custom-checkbox  form-group offset-md-1 auto-mx col-md-2">
+	                   <input class="form-check-input custom-control-input"  name="Telangana" value="Telangana" type="checkbox" id="Telangana">
+	                   <label class="form-check-label custom-control-label" for="Telangana">Telangana</label>
+	                   </div>
+	                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-2">
+	                   <input class="form-check-input custom-control-input"  name ="Chennai" value ="Chennai" type="checkbox" id="Chennai">
+	                   <label class="form-check-label custom-control-label" for="Chennai">Chennai</label>
+	                   </div>
+	                   <div class="form-check custom-control custom-checkbox form-group auto-mx col-md-2">
+	                   <input class="form-check-input custom-control-input"  name="Banglore" value="Banglore"  type="checkbox" id="Banglore">
+	                   <label class="form-check-label custom-control-label" for="Banglore">Banglore</label>
+	                   </div>
+	                   <div class="form-check custom-control custom-checkbox form-group auto-mx  col-md-2">
+	                   <input class="form-check-input custom-control-input"   name="Mumbai" value="Mumbai"  type="checkbox" id="Mumbai">
+	                   <label class="form-check-label custom-control-label" for="Mumbai">Mumbai</label>
+	                   </div>
+		           </div>
+		           <button type="submit" class="col-md-3 btn btn-primary little" style='margin-left:450px'>Submit</button>
+			</form> 
+			</div>
+			<div class="tab-pane fade" id="hide" role="tabpanel" aria-labelledby="hide-tab">
+			</div>
+			</div>
 		  	<%
 				DoctorDAO doctorDAO = new DoctorDAOImp();
 				Set<Doctor> doctors = doctorDAO.findDoctorsByFilters("%", "%", "%");
@@ -89,7 +175,7 @@
 				out.println("<table class=\"table table-hover table-borderless m-5 rounded table-dark col-md-11\">");
 				out.println(" <thead>");
 				out.println("   <tr>");
-				out.println("     <th scope=\"col\"Doctor</th>");
+				out.println("     <th scope=\"col\">Doctor</th>");
 				out.println("     <th scope=\"col\">Mobile</th>");
 				out.println("     <th scope=\"col\">Speciality</th>");
 				out.println("     <th scope=\"col\">Days of working</th>");

@@ -33,7 +33,7 @@
             %>
             </a>
             </ul>
-            <a class="nav-link" href="logoutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
+            <a class="nav-link" href="logutServlet"><button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#registerModal" type="submit">Sign-Out</button></a>
 
         </div>
     	</nav>
