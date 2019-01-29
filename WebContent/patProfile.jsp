@@ -91,8 +91,16 @@
 		  <div class="tab-content" id="myTabContent">
 		 	 <div class="tab-pane fade" id="filters" role="tabpanel" aria-labelledby="filters-tab">.
 		  	  <form class="padder" method="post" action="patProfile.jsp">
-		  	  <p class="h6" style="padding-left:90px;">Days</p>
-		           <div class="form-row">
+		  	  <nav>
+				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+				    <a class="nav-item nav-link active" id="Days-tab" data-toggle="tab" href="#Days" role="tab" aria-controls="Days" aria-selected="true">Days</a>
+				    <a class="nav-item nav-link" id="Specialization-tab" data-toggle="tab" href="#Specialization" role="tab" aria-controls="Specialization" aria-selected="false">Specialization</a>
+				    <a class="nav-item nav-link" id="Location-tab" data-toggle="tab" href="#Location" role="tab" aria-controls="Location" aria-selected="false">Location</a>
+				  </div>
+			  </nav>
+			<div class="tab-content" id="nav-tabContent">
+			  	   <div class="tab-pane fade show active" id="Days" role="tabpanel" aria-labelledby="Days-tab">
+		           <div class="form-row  mt-5">
 		                   <div class="form-checkcustom-control custom-checkbox  form-group offset-md-1 auto-mx col-md-1">
 		                   <input class="form-check-input custom-control-input"  name="Monday" value="Monday" type="checkbox" id="Monday">
 		                   <label class="form-check-label custom-control-label" for="Monday">Monday</label>
@@ -122,8 +130,9 @@
 		                   <label class="form-check-label custom-control-label" for="Sunday">Sunday</label>
 		                   </div>
 		           </div>
-		  	  <p class="h6" style="padding-left:90px;">Specialization</p>
-		           <div class="form-row">
+		           </div>
+			  	   <div class="tab-pane fade show" id="Specialization" role="tabpanel" aria-labelledby="Specialization-tab">
+		           <div class="form-row  mt-5">
 	                   <div class="form-checkcustom-control custom-checkbox  form-group offset-md-1 auto-mx col-md-2">
 	                   <input class="form-check-input custom-control-input"  name="Cardiologist" value="Cardiologist" type="checkbox" id="Cardiologist">
 	                   <label class="form-check-label custom-control-label" for="Cardiologist">Cardiologist</label>
@@ -141,8 +150,9 @@
 	                   <label class="form-check-label custom-control-label" for="Dermatologist">Dermatologist</label>
 	                   </div>
 		           </div>
-		  	  <p class="h6" style="padding-left:90px;">Location</p>
-		           <div class="form-row">
+		           </div>
+			  	   <div class="tab-pane fade show" id="Location" role="tabpanel" aria-labelledby="Location-tab">
+		           <div class="form-row  mt-5">
 	                   <div class="form-checkcustom-control custom-checkbox  form-group offset-md-1 auto-mx col-md-2">
 	                   <input class="form-check-input custom-control-input"  name="Telangana" value="Telangana" type="checkbox" id="Telangana">
 	                   <label class="form-check-label custom-control-label" for="Telangana">Telangana</label>
@@ -160,7 +170,9 @@
 	                   <label class="form-check-label custom-control-label" for="Mumbai">Mumbai</label>
 	                   </div>
 		           </div>
-		           <button type="submit" class="col-md-3 btn btn-primary little" style='margin-left:450px'>Submit</button>
+		           </div>
+		           </div>
+		           <button type="submit" class="col-md-3 btn  mt-5 btn-primary little" style='margin-left:450px'>Apply Filters</button>
 			</form> 
 			</div>
 			<div class="tab-pane fade" id="hide" role="tabpanel" aria-labelledby="hide-tab">

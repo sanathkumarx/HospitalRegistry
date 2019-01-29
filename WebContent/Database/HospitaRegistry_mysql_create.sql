@@ -31,6 +31,7 @@ CREATE TABLE `Reports` (
 	`techMobile` numeric(15) NOT NULL,
 	`testName` varchar(50) NOT NULL,
 	`repStatus` bool NOT NULL,
+	`path` varchar(100),
 	PRIMARY KEY (`repID`)
 );
 
