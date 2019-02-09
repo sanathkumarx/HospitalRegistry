@@ -1,3 +1,7 @@
+CREATE DATABASE `hospitalregistry`;
+
+USE `hospitalregistry`;
+
 CREATE TABLE `Patient` (
 	`patMobile` numeric(15) NOT NULL,
 	`patName` varchar(50) NOT NULL,
